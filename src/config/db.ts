@@ -1,8 +1,5 @@
 import mongoose from 'mongoose'
 
-const MONGO_PASSWORD = process.env.MONGO_PASSWORD
-const MONGO_URI = process.env.MONGO_URI
+mongoose.connect(`mongodb+srv://upwork:upwork@cluster0.ljfbr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
 
-mongoose.connect(`mongodb+srv://upwork:${MONGO_PASSWORD}@${MONGO_URI}`)
-
-module.exports = mongoose
+export default mongoose
