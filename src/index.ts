@@ -20,7 +20,7 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(express.json())
 
-app.use('/api', (req: Request, res: Response) => res.send({ message: 'Server is Running!' }))
+app.use('/', (req: Request, res: Response) => res.send({ message: 'Server is Running!' }))
 
 
 app.use('/api', router)
