@@ -22,6 +22,7 @@ const signUp = (req: Request, res: Response) => {
         if (!validEmail) {
             return res.send({ success: false, message: 'Invalid Email!' })
         }
+
         User.findOne({ email })
             .then((response) => {
                 if (response) {
@@ -42,15 +43,26 @@ const signUp = (req: Request, res: Response) => {
 
                         const data = { email, password, firstName, lastName, phoneNumber }
                         const user = new User(data)
-                        user.save().then(() => res.send({ success: true, message: 'Account Created successfully' }))
+                        user.save()
+                            .then(() => {
+                                let newUser: object = {
+                                    email: user?.email,
+                                    firstName: user?.firstName,
+                                    lastName: user?.lastName,
+                                    phoneNumber: user?.phoneNumber
+                                }
+                                return res.send({ success: true, message: 'Account Created successfully', user: newUser })
+                            })
                             .catch(() => res.send({ success: false, message: 'Something Went Wrong!' }))
-                    }
-                    )
+                    })
                 })
             })
-    } catch (e) {
+    }
+    catch (e) {
         return res.send({ success: false, message: 'Something Went Wrong!' })
     }
 }
 
-export { signUp }
+export {
+    signUp
+}

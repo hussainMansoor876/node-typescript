@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx tsc && node dist/index.js",
-    "dev": "nodemon index.ts",
+    "dev": "docker build -t node-app . && docker run -p 8081:8081 node-app",
     "build": "tsc -p .",
     "lint": "eslint . --ext .ts"
   },

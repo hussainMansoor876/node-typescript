@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
-const config_1 = require("./config");
-const routes_1 = __importDefault(require("./routes"));
+const config_1 = require("./app/config");
+const routes_1 = __importDefault(require("./app/routes"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
 const db = config_1.mongoose.connection;
@@ -20,6 +20,7 @@ db.on('open', () => {
 app.use(body_parser_1.default.json());
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+app.use('/api', (req, res) => res.send({ message: 'Server is Running!' }));
 app.use('/api', routes_1.default);
 app.listen(PORT, () => {
     console.log(`Server up and running on ${PORT}`);
