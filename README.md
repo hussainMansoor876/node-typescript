@@ -11,3 +11,5 @@ Open cmd/terminal/powershell to install packages in your machine and type:
 Once all Packages Installed you can run the project using
 ## yarn start
 command
+
+Your app is running on http://localhost:4000
