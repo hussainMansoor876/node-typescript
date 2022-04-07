@@ -5,8 +5,7 @@ First clone this project by using
 
 Then cd node-typescript
 
-Open cmd/terminal/powershell to install packages in your machine
-Type
+Open cmd/terminal/powershell to install packages in your machine and type:
 ## yarn and Press Enter
 
 Once all Packages Installed you can run the project using
